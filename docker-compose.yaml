@@ -1,0 +1,8 @@
+services:
+  app:
+    environment:
+      - GAME_ID=${GAME_ID}
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.dockerfile
+    image: timmydev09/petopia_unity_dedicated_instance
