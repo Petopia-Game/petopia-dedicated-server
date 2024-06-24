@@ -2,9 +2,9 @@ FROM ubuntu
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG DOCKER_VERSION=17.06.0-ce
-ENV GAME_ID=5
+ENV GAME_ID=42540f17-f16e-4dbe-8738-3cab10e121d3
 ENV GAME_ENV=DEV
-ENV API_KEY=api_key
+ENV API_KEY=apiKey
 
 RUN apt-get update
 RUN apt-get install -y libglu1 libxcursor1 ca-certificates 

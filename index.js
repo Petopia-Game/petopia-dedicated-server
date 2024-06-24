@@ -1,13 +1,15 @@
 const child_process = require('child_process')
 
-const gameId = process.env.GAME_ID
+const { GAME_ID, GAME_ENV, API_KEY } = process.env
 
-console.log(`game id: ${gameId}`)
+console.log(`game id: ${GAME_ID}`)
+console.log(`game env: ${GAME_ENV}`)
+console.log(`game api key: ${API_KEY}`)
 
-const createInstance = (gameId, port) => {
+const createInstance = (gameId, apiKey, gameEnv, port) => {
     try {
         const instancePath = __dirname + '/build/server.x86_64'
-        const args = ["-game_id", `${gameId}`, "-port", `${port}`]
+        const args = ["-game_id", `${gameId}`, "-api_key", `${apiKey}`, "-game_env", `${gameEnv}`, "-port", `${port}`]
 
         const child = child_process.spawn(instancePath, args)
         console.log('instance spawned')
@@ -34,4 +36,5 @@ const createInstance = (gameId, port) => {
     }
 }
 
-createInstance(gameId, 26000)
+
+createInstance(GAME_ID, API_KEY, GAME_ENV, 26000)
